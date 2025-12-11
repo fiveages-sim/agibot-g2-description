@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!-- =================================================================================== -->
+<!-- |    Complete Robot Description for Agibot G2                                     | -->
+<!-- |    This file includes the base robot structure and both arms                    | -->
+<!-- =================================================================================== -->
+<robot name="Agibot G2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:arg name="collider" default="convex"/>
+	<xacro:arg name="chassis_joints_movable" default="false"/>
+
+
+	<xacro:include filename="$(find agibot_g2_description)/xacro/components/linkhou_s2.xacro"/>
+	<xacro:linkhou_s2 joints_movable="$(arg chassis_joints_movable)"/>
+	<xacro:include filename="$(find agibot_g2_description)/xacro/components/body.xacro"/>
+
+
+
+	<!-- Left Arm -->
+	<joint name="left_arm_base_joint" type="fixed">
+		<parent link="arm_base"/>
+		<child link="left_base_link"/>
+		<origin xyz="0 0 0.069"/>
+	</joint>
+
+	<!-- Right Arm -->
+	<joint name="right_arm_base_joint" type="fixed">
+		<parent link="arm_base"/>
+		<child link="right_base_link"/>
+		<origin rpy="3.141592653589793 0 0" xyz="0 0 -0.069"/>
+	</joint>
+
+	<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
+	<xacro:M6_CCS name="left" collider="$(arg collider)"/>
+	<xacro:M6_CCS name="right" direction="-1" collider="$(arg collider)"/>
+
+	<xacro:arg name="type" default=""/>
+	<xacro:property name="selected_gripper_type" value="$(arg type)"/>
+	<xacro:include filename="$(find agibot_g2_description)/xacro/grippers.xacro"/>
+	<xacro:Grippers type="${selected_gripper_type}"/>
+
+</robot>

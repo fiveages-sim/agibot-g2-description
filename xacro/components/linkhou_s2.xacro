@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<robot name="Agibot_G2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:property name="PI" value="3.1415926535897931"/>
+
+	<xacro:macro name="linkhou_s2" params="joints_movable:=true">
+		<!-- 根据joints_movable参数设置关节类型 -->
+		<xacro:if value="${joints_movable}">
+			<xacro:property name="steer_joint_type" value="revolute"/>
+			<xacro:property name="wheel_joint_type" value="continuous"/>
+		</xacro:if>
+		<xacro:unless value="${joints_movable}">
+			<xacro:property name="steer_joint_type" value="fixed"/>
+			<xacro:property name="wheel_joint_type" value="fixed"/>
+		</xacro:unless>
+
+		<link name="base_footprint"/>
+		<joint name="base_footprint_joint" type="fixed">
+			<parent link="base_footprint"/>
+			<child link="base_link"/>
+			<origin xyz="0 0 0.04"/>
+		</joint>
+
+		<link name="base_link">
+			<inertial>
+				<origin xyz="-0.010273 0.00026047 0.1315"/>
+				<mass value="87.15"/>
+				<inertia
+						ixx="0.83411"
+						ixy="-0.00032119"
+						ixz="0.004604"
+						iyy="1.4167"
+						iyz="7.1643E-05"
+						izz="1.7214"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/base.obj"/>
+				</geometry>
+			</visual>
+			<collision name="base_link_coarse_0">
+				<geometry>
+					<box size="0.62673163 0.17409083 0.3258258"/>
+				</geometry>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.011247277 -0.23094544 0.16291195"/>
+			</collision>
+			<collision name="base_link_coarse_1">
+				<geometry>
+					<box size="0.62667394 0.18714839 0.3258258"/>
+				</geometry>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.011277318 0.23441666 0.16291195"/>
+			</collision>
+			<collision name="base_link_coarse_2">
+				<geometry>
+					<box size="0.6246023 0.23870158 0.06967827"/>
+				</geometry>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.01230073 -0.01307106 0.11483914"/>
+			</collision>
+		</link>
+
+		<link name="rr_steer">
+			<inertial>
+				<origin xyz="-0.00067026 -0.024202 -0.061733"/>
+				<mass value="0.65556"/>
+				<inertia
+						ixx="0.00076736"
+						ixy="-1.7164E-08"
+						ixz="-3.4992E-07"
+						iyy="0.00058611"
+						iyz="-0.00023947"
+						izz="0.00052471"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+				</geometry>
+			</visual>
+		</link>
+
+		<joint name="rr_steer_joint" type="${steer_joint_type}">
+			<origin xyz="-0.23 -0.218 0.16675"/>
+			<parent link="base_link"/>
+			<child link="rr_steer"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 0 1"/>
+				<limit lower="-${PI}" upper="${PI}" effort="5" velocity="6.28"/>
+			</xacro:if>
+		</joint>
+
+		<link name="rr_wheel">
+			<inertial>
+				<origin xyz="-9.5495E-06 -0.00099178 6.4755E-06"/>
+				<mass value="1.2283"/>
+				<inertia
+						ixx="0.0020567"
+						ixy="-3.2625E-08"
+						ixz="-1.1187E-07"
+						iyy="0.0037677"
+						iyz="1.4797E-07"
+						izz="0.0020568"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin rpy="${PI/2.0} 0 0"/>
+				<geometry>
+					<cylinder radius="0.07" length="0.046"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<joint name="rr_wheel_joint" type="${wheel_joint_type}">
+			<origin xyz="-0.00071653 -0.003566 -0.136"/>
+			<parent link="rr_steer"/>
+			<child link="rr_wheel"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 1 0"/>
+			</xacro:if>
+		</joint>
+
+		<link name="rl_steer">
+			<inertial>
+				<origin xyz="0.00067026 0.024202 -0.061733"/>
+				<mass value="0.65556"/>
+				<inertia
+						ixx="0.00076736"
+						ixy="-1.7163E-08"
+						ixz="3.4992E-07"
+						iyy="0.00058611"
+						iyz="0.00023947"
+						izz="0.00052471"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj"/>
+				</geometry>
+			</visual>
+		</link>
+
+		<joint name="rl_steer_joint" type="${steer_joint_type}">
+			<origin xyz="-0.23 0.218 0.16675"/>
+			<parent link="base_link"/>
+			<child link="rl_steer"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 0 1"/>
+				<limit lower="-${PI}" upper="${PI}" effort="5" velocity="6.28"/>
+			</xacro:if>
+		</joint>
+
+		<link name="rl_wheel">
+			<inertial>
+				<origin xyz="-6.77013827887762E-06 0.000991778701903534 9.34293679251755E-06"/>
+				<mass value="1.22832806539885"/>
+				<inertia
+						ixx="0.0020567891793888"
+						ixy="1.48916704553435E-07"
+						ixz="-1.10605927530389E-07"
+						iyy="0.0037676756883782"
+						iyz="-2.79953606372295E-08"
+						izz="0.00205674185492585"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin rpy="${PI/2.0} 0 0"/>
+				<geometry>
+					<cylinder radius="0.07" length="0.046"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<joint name="rl_wheel_joint" type="${wheel_joint_type}">
+			<origin xyz="0.00071653 0.003566 -0.136"/>
+			<parent link="rl_steer"/>
+			<child link="rl_wheel"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 1 0"/>
+			</xacro:if>
+		</joint>
+
+		<link name="fr_steer">
+			<inertial>
+				<origin xyz="-0.00067026 -0.024202 -0.061733"/>
+				<mass value="0.65556"/>
+				<inertia
+						ixx="0.00076736"
+						ixy="-1.7163E-08"
+						ixz="-3.4992E-07"
+						iyy="0.00058611"
+						iyz="-0.00023947"
+						izz="0.00052471"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+				</geometry>
+			</visual>
+		</link>
+
+		<joint name="fr_steer_joint" type="${steer_joint_type}">
+			<origin xyz="0.23 -0.218 0.16675"/>
+			<parent link="base_link"/>
+			<child link="fr_steer"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 0 1"/>
+				<limit lower="-${PI}" upper="${PI}" effort="5" velocity="6.28"/>
+			</xacro:if>
+		</joint>
+
+		<link name="fr_wheel">
+			<inertial>
+				<origin xyz="-6.4606E-06 -0.00099178 9.5769E-06"/>
+				<mass value="1.2283"/>
+				<inertia
+						ixx="0.0020567"
+						ixy="2.462E-08"
+						ixz="-6.9326E-08"
+						iyy="0.0037677"
+						iyz="1.4949E-07"
+						izz="0.0020569"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin rpy="${PI/2.0} 0 0"/>
+				<geometry>
+					<cylinder radius="0.07" length="0.046"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<joint name="fr_wheel_joint" type="${wheel_joint_type}">
+			<origin xyz="-0.00071653 -0.003566 -0.136"/>
+			<parent link="fr_steer"/>
+			<child link="fr_wheel"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 1 0"/>
+			</xacro:if>
+		</joint>
+
+		<link name="fl_steer">
+			<inertial>
+				<origin xyz="0.00067026110136939 0.024201895934192 -0.0617332783946613"/>
+				<mass value="0.655558098590739"/>
+				<inertia
+						ixx="0.00076735828499042"
+						ixy="-1.71633678730281E-08"
+						ixz="3.49915403143955E-07"
+						iyy="0.000586107112558297"
+						iyz="0.000239471330998281"
+						izz="0.000524706735782284"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj"/>
+				</geometry>
+			</visual>
+		</link>
+
+		<joint name="fl_steer_joint" type="${steer_joint_type}">
+			<origin xyz="0.23 0.218 0.16675"/>
+			<parent link="base_link"/>
+			<child link="fl_steer"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 0 1"/>
+				<limit lower="-${PI}" upper="${PI}" effort="5" velocity="6.28"/>
+			</xacro:if>
+		</joint>
+
+		<link name="fl_wheel">
+			<inertial>
+				<origin xyz="-8.3207E-06 0.00099179 8.0258E-06"/>
+				<mass value="1.2283"/>
+				<inertia
+						ixx="0.0020568"
+						ixy="1.515E-07"
+						ixz="-9.5872E-08"
+						iyy="0.0037677"
+						iyz="-1.7122E-09"
+						izz="0.0020567"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj"/>
+				</geometry>
+			</visual>
+			<collision>
+				<origin rpy="${PI/2.0} 0 0"/>
+				<geometry>
+					<cylinder radius="0.07" length="0.046"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<joint name="fl_wheel_joint" type="${wheel_joint_type}">
+			<origin xyz="0.00071653 -0.003566 -0.136"/>
+			<parent link="fl_steer"/>
+			<child link="fl_wheel"/>
+			<xacro:if value="${joints_movable}">
+				<axis xyz="0 1 0"/>
+			</xacro:if>
+		</joint>
+
+	</xacro:macro>
+
+</robot>
