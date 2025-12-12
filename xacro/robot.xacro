@@ -29,7 +29,7 @@
 		<origin rpy="3.141592653589793 0 0" xyz="0 0 -0.069"/>
 	</joint>
 
-	<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
+	<xacro:include filename="$(find agibot_g2_description)/xacro/components/arm.xacro"/>
 	<xacro:M6_CCS name="left" collider="$(arg collider)"/>
 	<xacro:M6_CCS name="right" direction="-1" collider="$(arg collider)"/>
 
