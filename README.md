@@ -1,4 +1,4 @@
-rm# Agibot G2 Description
+# Agibot G2 Description
 
 This package contains the description files for Agibot Genie G1 humanoid. The origin models could be found at [GenieSim](https://huggingface.co/datasets/agibot-world/GenieSimAssets).
 
