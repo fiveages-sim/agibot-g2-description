@@ -3,7 +3,7 @@
 <!-- |    Complete Robot Description for Agibot G2                                     | -->
 <!-- |    This file includes the base robot structure and both arms                    | -->
 <!-- =================================================================================== -->
-<robot name="Agibot G2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="M6_CCS" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 	<xacro:arg name="type" default="linkhou_q2"/>
 
@@ -15,7 +15,28 @@
 
 	<xacro:if value="${'$(arg type)' == 'body'}">
 		<link name="base_link"/>
-		<xacro:include filename="$(find fiveages_w2_description)/xacro/body.xacro"/>
+		<xacro:include filename="$(find agibot_g2_description)/xacro/components/body.xacro"/>
+	</xacro:if>
+
+	<xacro:if value="${'$(arg type)' == 'arms'}">
+		<link name="arm_base"/>
+		<!-- Left Arm -->
+		<joint name="left_arm_base_joint" type="fixed">
+			<parent link="arm_base"/>
+			<child link="left_base_link"/>
+			<origin rpy="-1.5708 0 0" xyz="0 0.069 0"/>
+		</joint>
+
+		<!-- Right Arm -->
+		<joint name="right_arm_base_joint" type="fixed">
+			<parent link="arm_base"/>
+			<child link="right_base_link"/>
+			<origin rpy="1.5708 0 0" xyz="0 -0.069 0"/>
+		</joint>
+
+		<xacro:include filename="$(find agibot_g2_description)/xacro/components/arm.xacro"/>
+		<xacro:M6_CCS name="left" collider="simple"/>
+		<xacro:M6_CCS name="right" direction="-1" collider="simple"/>
 	</xacro:if>
 
 </robot>

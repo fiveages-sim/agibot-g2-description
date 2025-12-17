@@ -42,19 +42,19 @@
 				<geometry>
 					<box size="0.62673163 0.17409083 0.3258258"/>
 				</geometry>
-				<origin rpy="0.0 -0.0 0.0" xyz="0.011247277 -0.23094544 0.16291195"/>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.011247277 -0.23 0.16291195"/>
 			</collision>
 			<collision name="base_link_coarse_1">
 				<geometry>
 					<box size="0.62667394 0.18714839 0.3258258"/>
 				</geometry>
-				<origin rpy="0.0 -0.0 0.0" xyz="0.011277318 0.23441666 0.16291195"/>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.011277318 0.23 0.16291195"/>
 			</collision>
 			<collision name="base_link_coarse_2">
 				<geometry>
 					<box size="0.6246023 0.23870158 0.06967827"/>
 				</geometry>
-				<origin rpy="0.0 -0.0 0.0" xyz="0.01230073 -0.01307106 0.11483914"/>
+				<origin rpy="0.0 -0.0 0.0" xyz="0.01230073 0 0.11483914"/>
 			</collision>
 		</link>
 

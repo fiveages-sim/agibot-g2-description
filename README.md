@@ -27,6 +27,16 @@ colcon build --packages-up-to agibot_g2_description --symlink-install
   source ~/ros2_ws/install/setup.bash
   ros2 launch robot_common_launch component.launch.py robot:=agibot_g2
   ```
+* body
+  ```bash
+  source ~/ros2_ws/install/setup.bash
+  ros2 launch robot_common_launch component.launch.py robot:=agibot_g2 type:=body
+  ```
+* Arms
+  ```bash
+  source ~/ros2_ws/install/setup.bash
+  ros2 launch robot_common_launch component.launch.py robot:=agibot_g2 type:=arms
+  ```
   
 ## 3. OCS2 Demo
 
@@ -44,4 +54,11 @@ ros2 launch robot_common_launch manipulator_ocs2.launch.py robot_name:=agibot_g2
   ```bash
   source ~/ros2_ws/install/setup.bash
   ros2 launch ocs2_arm_controller full_body.launch.py robot:=agibot_g2 type:=ag2f90
+  ```
+
+### 3.3 Isaac Sim Simulation
+* Full Body Control
+  ```bash
+  source ~/ros2_ws/install/setup.bash
+  ros2 launch ocs2_arm_controller full_body.launch.py robot:=agibot_g2 type:=ag2f90 hardware:=isaac
   ```
