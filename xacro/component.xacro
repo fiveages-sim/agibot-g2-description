@@ -5,12 +5,12 @@
 <!-- =================================================================================== -->
 <robot name="M6_CCS" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<xacro:arg name="type" default="linkhou_q2"/>
+	<xacro:arg name="type" default="chassis"/>
 
 	<xacro:arg name="chassis_joints_movable" default="true"/>
-	<xacro:if value="${'$(arg type)' == 'linkhou_q2'}">
-		<xacro:include filename="$(find agibot_g2_description)/xacro/components/linkhou_s2.xacro"/>
-		<xacro:linkhou_s2 joints_movable="$(arg chassis_joints_movable)"/>
+	<xacro:if value="${'$(arg type)' == 'chassis'}">
+		<xacro:include filename="$(find agibot_g2_description)/xacro/components/chassis.xacro"/>
+		<xacro:chassis joints_movable="$(arg chassis_joints_movable)"/>
 	</xacro:if>
 
 	<xacro:if value="${'$(arg type)' == 'body'}">
@@ -34,9 +34,9 @@
 			<origin rpy="1.5708 0 0" xyz="0 -0.069 0"/>
 		</joint>
 
-		<xacro:include filename="$(find agibot_g2_description)/xacro/components/arm.xacro"/>
-		<xacro:M6_CCS name="left" collider="simple"/>
-		<xacro:M6_CCS name="right" direction="-1" collider="simple"/>
+		<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
+		<xacro:M6_CCS name="left" style="agibot_g2"/>
+		<xacro:M6_CCS name="right" direction="-1" style="agibot_g2"/>
 	</xacro:if>
 
 </robot>

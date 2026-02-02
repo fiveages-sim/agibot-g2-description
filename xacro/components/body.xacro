@@ -11,7 +11,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link1.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link1.glb"/>
 			</geometry>
 		</visual>
 		<collision name="Cylinder">
@@ -63,7 +63,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link2.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link2.glb"/>
 			</geometry>
 		</visual>
 		<collision name="body_link2_convex_0">
@@ -90,7 +90,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link3.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link3.glb"/>
 			</geometry>
 		</visual>
 		<collision name="body_link3_convex_0">
@@ -117,7 +117,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link4.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link4.glb"/>
 			</geometry>
 		</visual>
 		<collision name="body_link4_convex_1">
@@ -153,7 +153,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link5.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/link5.glb"/>
 			</geometry>
 		</visual>
 		<collision name="body_link5_convex_0">
@@ -195,7 +195,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head1.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head1.glb"/>
 			</geometry>
 		</visual>
 		<collision name="head_link1_convex_0">
@@ -222,7 +222,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head2.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head2.glb"/>
 			</geometry>
 		</visual>
 		<collision name="head_link2_convex_0">
@@ -249,7 +249,7 @@
 		</inertial>
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head3.obj"/>
+				<mesh filename="file://$(find agibot_g2_description)/meshes/body/head3.glb"/>
 			</geometry>
 		</visual>
 		<collision name="head_link3_convex_0">

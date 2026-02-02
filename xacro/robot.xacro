@@ -8,9 +8,30 @@
 	<xacro:arg name="collider" default="convex"/>
 	<xacro:arg name="chassis_joints_movable" default="false"/>
 
+	<!-- 从 type 参数解析出 gripper_type -->
+	<xacro:arg name="type" default=""/>
+	<xacro:property name="type_arg" value="$(arg type)"/>
 
-	<xacro:include filename="$(find agibot_g2_description)/xacro/components/linkhou_s2.xacro"/>
-	<xacro:linkhou_s2 joints_movable="$(arg chassis_joints_movable)"/>
+	<!-- 默认值 -->
+	<xacro:property name="selected_gripper_type" value=""/>
+
+	<!-- 从 type 解析 gripper_type -->
+	<!-- 夹爪类型：selected_gripper_type 不为空即表示使用夹爪 -->
+	<xacro:if value="${type_arg == 'rg75'}">
+		<xacro:property name="selected_gripper_type" value="rg75"/>
+	</xacro:if>
+	<xacro:if value="${type_arg == 'ag2f90'}">
+		<xacro:property name="selected_gripper_type" value="ag2f90_d"/>
+	</xacro:if>
+	<xacro:if value="${type_arg == 'ag2f90_c'}">
+		<xacro:property name="selected_gripper_type" value="ag2f90_c"/>
+	</xacro:if>
+	<xacro:if value="${type_arg == 'ag2f90_d'}">
+		<xacro:property name="selected_gripper_type" value="ag2f90_d"/>
+	</xacro:if>
+
+	<xacro:include filename="$(find agibot_g2_description)/xacro/components/chassis.xacro"/>
+	<xacro:chassis joints_movable="$(arg chassis_joints_movable)"/>
 	<xacro:include filename="$(find agibot_g2_description)/xacro/components/body.xacro"/>
 
 
@@ -29,13 +50,11 @@
 		<origin rpy="3.141592653589793 0 0" xyz="0 0 -0.069"/>
 	</joint>
 
-	<xacro:include filename="$(find agibot_g2_description)/xacro/components/arm.xacro"/>
-	<xacro:M6_CCS name="left" collider="$(arg collider)"/>
-	<xacro:M6_CCS name="right" direction="-1" collider="$(arg collider)"/>
+	<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
+	<xacro:M6_CCS name="left" style="agibot_g2"/>
+	<xacro:M6_CCS name="right" direction="-1" style="agibot_g2"/>
 
-	<xacro:arg name="type" default=""/>
-	<xacro:property name="selected_gripper_type" value="$(arg type)"/>
-	<xacro:include filename="$(find agibot_g2_description)/xacro/grippers.xacro"/>
-	<xacro:Grippers type="${selected_gripper_type}"/>
+	<xacro:include filename="$(find agibot_g2_description)/xacro/eefs.xacro"/>
+	<xacro:EndEffectors gripper_type="${selected_gripper_type}"/>
 
 </robot>

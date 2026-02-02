@@ -22,26 +22,26 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/base.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/base.glb"/>
       </geometry>
     </visual>
     <collision name="base_link_coarse_0">
       <geometry>
         <box size="0.62673163 0.17409083 0.3258258"/>
       </geometry>
-      <origin rpy="0.0 -0.0 0.0" xyz="0.011247277 -0.23094544 0.16291195"/>
+      <origin rpy="0.0 -0.0 0.0" xyz="0.011247277 -0.23 0.16291195"/>
     </collision>
     <collision name="base_link_coarse_1">
       <geometry>
         <box size="0.62667394 0.18714839 0.3258258"/>
       </geometry>
-      <origin rpy="0.0 -0.0 0.0" xyz="0.011277318 0.23441666 0.16291195"/>
+      <origin rpy="0.0 -0.0 0.0" xyz="0.011277318 0.23 0.16291195"/>
     </collision>
     <collision name="base_link_coarse_2">
       <geometry>
         <box size="0.6246023 0.23870158 0.06967827"/>
       </geometry>
-      <origin rpy="0.0 -0.0 0.0" xyz="0.01230073 -0.01307106 0.11483914"/>
+      <origin rpy="0.0 -0.0 0.0" xyz="0.01230073 0 0.11483914"/>
     </collision>
   </link>
   <link name="rr_steer">
@@ -52,7 +52,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.glb" scale="1 -1 1"/>
       </geometry>
     </visual>
   </link>
@@ -69,7 +69,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.glb" scale="1 -1 1"/>
       </geometry>
     </visual>
     <collision>
@@ -92,7 +92,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.glb"/>
       </geometry>
     </visual>
   </link>
@@ -109,7 +109,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.glb"/>
       </geometry>
     </visual>
     <collision>
@@ -132,7 +132,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.glb" scale="1 -1 1"/>
       </geometry>
     </visual>
   </link>
@@ -149,7 +149,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.glb" scale="1 -1 1"/>
       </geometry>
     </visual>
     <collision>
@@ -172,7 +172,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/steer_link.glb"/>
       </geometry>
     </visual>
   </link>
@@ -189,7 +189,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/chassis/wheel.glb"/>
       </geometry>
     </visual>
     <collision>
@@ -212,7 +212,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/link1.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/link1.glb"/>
       </geometry>
     </visual>
     <collision name="Cylinder">
@@ -261,7 +261,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/link2.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/link2.glb"/>
       </geometry>
     </visual>
     <collision name="body_link2_convex_0">
@@ -285,7 +285,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/link3.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/link3.glb"/>
       </geometry>
     </visual>
     <collision name="body_link3_convex_0">
@@ -309,7 +309,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/link4.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/link4.glb"/>
       </geometry>
     </visual>
     <collision name="body_link4_convex_1">
@@ -342,7 +342,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/link5.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/link5.glb"/>
       </geometry>
     </visual>
     <collision name="body_link5_convex_0">
@@ -380,7 +380,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/head1.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/head1.glb"/>
       </geometry>
     </visual>
     <collision name="head_link1_convex_0">
@@ -404,7 +404,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/head2.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/head2.glb"/>
       </geometry>
     </visual>
     <collision name="head_link2_convex_0">
@@ -428,7 +428,7 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://agibot_g2_description/meshes/body/head3.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/body/head3.glb"/>
       </geometry>
     </visual>
     <collision name="head_link3_convex_0">
@@ -465,12 +465,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/base.obj"/>
+        <mesh filename="package://m6_ccs_description/meshes/base.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 0.041832"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/base.obj"/>
+        <cylinder length="0.083664" radius="0.051277"/>
       </geometry>
     </collision>
   </link>
@@ -483,12 +484,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link1.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link1.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link1.obj"/>
+        <cylinder length="0.125958" radius="0.057588"/>
       </geometry>
     </collision>
   </link>
@@ -498,7 +500,7 @@
     <parent link="left_base_link"/>
     <child link="left_link1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="108" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="108" lower="-3.106686068549907" upper="3.106686068549907" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 2 -->
   <link name="left_link2">
@@ -509,12 +511,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link2.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link2.glb" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0 0.099087 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link2.obj"/>
+        <cylinder length="0.078386" radius="0.046717"/>
       </geometry>
     </collision>
   </link>
@@ -524,7 +527,7 @@
     <parent link="left_link1"/>
     <child link="left_link2"/>
     <axis xyz="0 0 1"/>
-    <limit effort="108" lower="-2.0944" upper="2.0944" velocity="3.141592653589793"/>
+    <limit effort="108" lower="-2.0594885173533086" upper="2.0594885173533086" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 3 -->
   <link name="left_link3">
@@ -535,12 +538,19 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link3.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link3.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 -0.098932"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link3.obj"/>
+        <cylinder length="0.089056" radius="0.046717"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0.018119 0 0"/>
+      <geometry>
+        <cylinder length="0.117016" radius="0.049964"/>
       </geometry>
     </collision>
   </link>
@@ -550,7 +560,7 @@
     <parent link="left_link2"/>
     <child link="left_link3"/>
     <axis xyz="0 0 1"/>
-    <limit effort="66" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="66" lower="-2.9321531433504737" upper="2.9321531433504737" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 4 -->
   <link name="left_link4">
@@ -561,12 +571,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link4.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link4.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0.017721 -0.079733 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link4.obj"/>
+        <cylinder length="0.080203" radius="0.041759"/>
       </geometry>
     </collision>
   </link>
@@ -576,7 +587,7 @@
     <parent link="left_link3"/>
     <child link="left_link4"/>
     <axis xyz="0 0 1"/>
-    <limit effort="66" lower="-2.5307" upper="1.0472" velocity="3.141592653589793"/>
+    <limit effort="66" lower="-2.4958208303518914" upper="1.0122909661567112" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 5 - Mirrored COM and partial inertia -->
   <link name="left_link5">
@@ -587,12 +598,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link5.obj" scale="1 1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link5.glb" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 -0.117153"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link5.obj" scale="1 1 1"/>
+        <cylinder length="0.14268" radius="0.056747"/>
       </geometry>
     </collision>
   </link>
@@ -602,7 +614,7 @@
     <parent link="left_link4"/>
     <child link="left_link5"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-2.9321531433504737" upper="2.9321531433504737" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 6 - Partially mirrored COM and inertia -->
   <link name="left_link6">
@@ -613,12 +625,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link6.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link6.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link6.obj"/>
+        <cylinder length="0.108046" radius="0.038348"/>
       </geometry>
     </collision>
   </link>
@@ -628,7 +641,7 @@
     <parent link="left_link5"/>
     <child link="left_link6"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-1.0472" upper="1.0472" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-1.0122909661567112" upper="1.0122909661567112" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 7 -->
   <link name="left_link7">
@@ -639,12 +652,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link7.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link7.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0 -0.075732 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link7.obj"/>
+        <cylinder length="0.038392" radius="0.041707"/>
       </geometry>
     </collision>
   </link>
@@ -654,7 +668,7 @@
     <parent link="left_link6"/>
     <child link="left_link7"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-1.361356816555577" upper="1.361356816555577" velocity="3.141592653589793"/>
   </joint>
   <link name="left_tcp"/>
   <joint name="left_tcp_joint" type="fixed">
@@ -671,12 +685,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/base.obj"/>
+        <mesh filename="package://m6_ccs_description/meshes/base.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 0.041832"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/base.obj"/>
+        <cylinder length="0.083664" radius="0.051277"/>
       </geometry>
     </collision>
   </link>
@@ -689,12 +704,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link1.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link1.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link1.obj"/>
+        <cylinder length="0.125958" radius="0.057588"/>
       </geometry>
     </collision>
   </link>
@@ -704,7 +720,7 @@
     <parent link="right_base_link"/>
     <child link="right_link1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="108" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="108" lower="-3.106686068549907" upper="3.106686068549907" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 2 -->
   <link name="right_link2">
@@ -715,12 +731,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link2.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link2.glb" scale="1 1 -1"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0 0.099087 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link2.obj"/>
+        <cylinder length="0.078386" radius="0.046717"/>
       </geometry>
     </collision>
   </link>
@@ -730,7 +747,7 @@
     <parent link="right_link1"/>
     <child link="right_link2"/>
     <axis xyz="0 0 1"/>
-    <limit effort="108" lower="-2.0944" upper="2.0944" velocity="3.141592653589793"/>
+    <limit effort="108" lower="-2.0594885173533086" upper="2.0594885173533086" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 3 -->
   <link name="right_link3">
@@ -741,12 +758,19 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link3.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link3.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 -0.098932"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link3.obj"/>
+        <cylinder length="0.089056" radius="0.046717"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0.018119 0 0"/>
+      <geometry>
+        <cylinder length="0.117016" radius="0.049964"/>
       </geometry>
     </collision>
   </link>
@@ -756,7 +780,7 @@
     <parent link="right_link2"/>
     <child link="right_link3"/>
     <axis xyz="0 0 1"/>
-    <limit effort="66" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="66" lower="-2.9321531433504737" upper="2.9321531433504737" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 4 -->
   <link name="right_link4">
@@ -767,12 +791,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link4.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link4.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0.017721 -0.079733 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link4.obj"/>
+        <cylinder length="0.080203" radius="0.041759"/>
       </geometry>
     </collision>
   </link>
@@ -782,7 +807,7 @@
     <parent link="right_link3"/>
     <child link="right_link4"/>
     <axis xyz="0 0 1"/>
-    <limit effort="66" lower="-2.5307" upper="1.0472" velocity="3.141592653589793"/>
+    <limit effort="66" lower="-2.4958208303518914" upper="1.0122909661567112" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 5 - Mirrored COM and partial inertia -->
   <link name="right_link5">
@@ -793,12 +818,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link5.obj" scale="1 -1 1"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link5.glb" scale="1 -1 1"/>
       </geometry>
     </visual>
     <collision>
+      <origin xyz="0 0 -0.117153"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link5.obj" scale="1 -1 1"/>
+        <cylinder length="0.14268" radius="0.056747"/>
       </geometry>
     </collision>
   </link>
@@ -808,7 +834,7 @@
     <parent link="right_link4"/>
     <child link="right_link5"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-3.1067" upper="3.1067" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-2.9321531433504737" upper="2.9321531433504737" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 6 - Partially mirrored COM and inertia -->
   <link name="right_link6">
@@ -819,12 +845,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link6.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link6.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link6.obj"/>
+        <cylinder length="0.108046" radius="0.038348"/>
       </geometry>
     </collision>
   </link>
@@ -834,7 +861,7 @@
     <parent link="right_link5"/>
     <child link="right_link6"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-1.0472" upper="1.0472" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-1.0122909661567112" upper="1.0122909661567112" velocity="3.141592653589793"/>
   </joint>
   <!-- Link 7 -->
   <link name="right_link7">
@@ -845,12 +872,13 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link7_r.obj"/>
+        <mesh filename="package://agibot_g2_description/meshes/arm/link7_r.glb"/>
       </geometry>
     </visual>
     <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0 -0.075732 0"/>
       <geometry>
-        <mesh filename="package://m6_ccs_description/meshes/link7.obj"/>
+        <cylinder length="0.038392" radius="0.041707"/>
       </geometry>
     </collision>
   </link>
@@ -860,7 +888,7 @@
     <parent link="right_link6"/>
     <child link="right_link7"/>
     <axis xyz="0 0 1"/>
-    <limit effort="18" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="3.141592653589793"/>
+    <limit effort="18" lower="-1.361356816555577" upper="1.361356816555577" velocity="3.141592653589793"/>
   </joint>
   <link name="right_tcp"/>
   <joint name="right_tcp_joint" type="fixed">
@@ -868,7 +896,7 @@
     <parent link="right_link7"/>
     <child link="right_tcp"/>
   </joint>
-  <!-- Note: type parameter is now passed as macro parameter -->
+  <!-- Note: gripper_type 不为空时表示使用夹爪 -->
   <link name="left_eef"/>
   <link name="right_eef"/>
   <joint name="left_eef_joint" type="fixed">

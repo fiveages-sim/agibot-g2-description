@@ -13,7 +13,7 @@ colcon build --packages-up-to agibot_g2_description --symlink-install
 * Empty Hand
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch robot_common_launch manipulator.launch.py robot:=agibot_g2
+  ros2 launch robot_common_launch manipulator.launch.py robot:=agibot_g2 collider:=simple
   ```
 * With ChangingTek AG2F90
   ```bash

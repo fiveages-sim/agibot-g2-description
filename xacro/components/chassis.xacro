@@ -3,8 +3,7 @@
 
 	<xacro:property name="PI" value="3.1415926535897931"/>
 
-	<xacro:macro name="linkhou_s2" params="joints_movable:=true">
-		<!-- 根据joints_movable参数设置关节类型 -->
+	<xacro:macro name="chassis" params="joints_movable:=true">
 		<xacro:if value="${joints_movable}">
 			<xacro:property name="steer_joint_type" value="revolute"/>
 			<xacro:property name="wheel_joint_type" value="continuous"/>
@@ -35,7 +34,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/base.obj"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/base.glb"/>
 				</geometry>
 			</visual>
 			<collision name="base_link_coarse_0">
@@ -72,7 +71,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.glb" scale="1 -1 1"/>
 				</geometry>
 			</visual>
 		</link>
@@ -101,7 +100,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.glb" scale="1 -1 1"/>
 				</geometry>
 			</visual>
 			<collision>
@@ -135,7 +134,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.glb"/>
 				</geometry>
 			</visual>
 		</link>
@@ -164,7 +163,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.glb"/>
 				</geometry>
 			</visual>
 			<collision>
@@ -198,7 +197,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj" scale="1 -1 1"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.glb" scale="1 -1 1"/>
 				</geometry>
 			</visual>
 		</link>
@@ -227,7 +226,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj" scale="1 -1 1"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.glb" scale="1 -1 1"/>
 				</geometry>
 			</visual>
 			<collision>
@@ -261,7 +260,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.obj"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/steer_link.glb"/>
 				</geometry>
 			</visual>
 		</link>
@@ -290,7 +289,7 @@
 			</inertial>
 			<visual>
 				<geometry>
-					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.obj"/>
+					<mesh filename="file://$(find agibot_g2_description)/meshes/chassis/wheel.glb"/>
 				</geometry>
 			</visual>
 			<collision>
