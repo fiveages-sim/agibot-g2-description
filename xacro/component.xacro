@@ -19,8 +19,8 @@
 		<xacro:DualArmBase left_xyz="0 0.069 0" right_xyz="0 -0.069 0"/>
 
 		<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
-		<xacro:M6_CCS name="left" style="agibot_g2"/>
-		<xacro:M6_CCS name="right" direction="-1" style="agibot_g2"/>
+		<xacro:M6_CCS name="left" skin="agibot_g2"/>
+		<xacro:M6_CCS name="right" direction="-1" skin="agibot_g2"/>
 	</xacro:if>
 
 </robot>
