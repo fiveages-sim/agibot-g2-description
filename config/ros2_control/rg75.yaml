@@ -1,0 +1,7 @@
+ocs2_arm_controller:
+  ros__parameters:
+    robot_type: rg75
+
+ocs2_wbc_controller:
+  ros__parameters:
+    robot_type: rg75

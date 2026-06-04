@@ -1,13 +1,9 @@
 <?xml version="1.0" ?>
-<!-- =================================================================================== -->
-<!-- |    Complete Robot Description for Agibot G2                                     | -->
-<!-- |    This file includes the base robot structure and both arms                    | -->
-<!-- =================================================================================== -->
-<robot name="M6_CCS" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="Agibot G2" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 	<xacro:arg name="type" default="chassis"/>
-
 	<xacro:arg name="chassis_joints_movable" default="true"/>
+
 	<xacro:if value="${'$(arg type)' == 'chassis'}">
 		<xacro:include filename="$(find agibot_g2_description)/xacro/components/chassis.xacro"/>
 		<xacro:chassis joints_movable="$(arg chassis_joints_movable)"/>
@@ -19,20 +15,8 @@
 	</xacro:if>
 
 	<xacro:if value="${'$(arg type)' == 'arms'}">
-		<link name="arm_base"/>
-		<!-- Left Arm -->
-		<joint name="left_arm_base_joint" type="fixed">
-			<parent link="arm_base"/>
-			<child link="left_base_link"/>
-			<origin rpy="-1.5708 0 0" xyz="0 0.069 0"/>
-		</joint>
-
-		<!-- Right Arm -->
-		<joint name="right_arm_base_joint" type="fixed">
-			<parent link="arm_base"/>
-			<child link="right_base_link"/>
-			<origin rpy="1.5708 0 0" xyz="0 -0.069 0"/>
-		</joint>
+		<xacro:include filename="$(find m6_ccs_description)/xacro/arm_mount.xacro"/>
+		<xacro:DualArmBase left_xyz="0 0.069 0" right_xyz="0 -0.069 0"/>
 
 		<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
 		<xacro:M6_CCS name="left" style="agibot_g2"/>

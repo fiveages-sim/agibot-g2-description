@@ -174,7 +174,7 @@
 	<!-- Arm -->
 	<link name="arm_base"/>
 	<joint name="arm_base_joint" type="fixed">
-		<origin rpy="-1.5707963267948966 0 0" xyz="0.0 0.0 0.3085"/>
+		<origin xyz="0.0 0.0 0.3085"/>
 		<parent link="body_link5"/>
 		<child link="arm_base"/>
 	</joint>

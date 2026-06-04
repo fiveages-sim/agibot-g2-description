@@ -1,60 +1,46 @@
 <?xml version="1.0" ?>
 <!-- =================================================================================== -->
 <!-- |    Complete Robot Description for Agibot G2                                     | -->
-<!-- |    This file includes the base robot structure and both arms                    | -->
+<!-- |    End effectors: m6_ccs_description eef_type_resolver + eefs.xacro             | -->
 <!-- =================================================================================== -->
 <robot name="Agibot G2" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 	<xacro:arg name="collider" default="convex"/>
 	<xacro:arg name="chassis_joints_movable" default="false"/>
-
-	<!-- 从 type 参数解析出 gripper_type -->
 	<xacro:arg name="type" default=""/>
+	<xacro:arg name="left_type" default=""/>
+	<xacro:arg name="right_type" default=""/>
+	<xacro:arg name="eef_fixed_joints" default="false"/>
+
 	<xacro:property name="type_arg" value="$(arg type)"/>
-
-	<!-- 默认值 -->
-	<xacro:property name="selected_gripper_type" value=""/>
-
-	<!-- 从 type 解析 gripper_type -->
-	<!-- 夹爪类型：selected_gripper_type 不为空即表示使用夹爪 -->
-	<xacro:if value="${type_arg == 'rg75'}">
-		<xacro:property name="selected_gripper_type" value="rg75"/>
-	</xacro:if>
-	<xacro:if value="${type_arg == 'ag2f90'}">
-		<xacro:property name="selected_gripper_type" value="ag2f90_d"/>
-	</xacro:if>
-	<xacro:if value="${type_arg == 'ag2f90_c'}">
-		<xacro:property name="selected_gripper_type" value="ag2f90_c"/>
-	</xacro:if>
-	<xacro:if value="${type_arg == 'ag2f90_d'}">
-		<xacro:property name="selected_gripper_type" value="ag2f90_d"/>
-	</xacro:if>
+	<xacro:property name="left_type_arg" value="$(arg left_type)"/>
+	<xacro:property name="right_type_arg" value="$(arg right_type)"/>
+	<xacro:property name="effective_left_type" value="${left_type_arg if left_type_arg != '' else type_arg}"/>
+	<xacro:property name="effective_right_type" value="${right_type_arg if right_type_arg != '' else type_arg}"/>
 
 	<xacro:include filename="$(find agibot_g2_description)/xacro/components/chassis.xacro"/>
 	<xacro:chassis joints_movable="$(arg chassis_joints_movable)"/>
 	<xacro:include filename="$(find agibot_g2_description)/xacro/components/body.xacro"/>
 
-
-
-	<!-- Left Arm -->
-	<joint name="left_arm_base_joint" type="fixed">
-		<parent link="arm_base"/>
-		<child link="left_base_link"/>
-		<origin xyz="0 0 0.069"/>
-	</joint>
-
-	<!-- Right Arm -->
-	<joint name="right_arm_base_joint" type="fixed">
-		<parent link="arm_base"/>
-		<child link="right_base_link"/>
-		<origin rpy="3.141592653589793 0 0" xyz="0 0 -0.069"/>
-	</joint>
+	<!-- arm_base_joint has no extra rotation; same DualArmMount convention as W2 / M6 (±Y 0.069) -->
+	<xacro:include filename="$(find m6_ccs_description)/xacro/arm_mount.xacro"/>
+	<xacro:DualArmMount parent="arm_base" left_xyz="0 0.069 0" right_xyz="0 -0.069 0"/>
 
 	<xacro:include filename="$(find m6_ccs_description)/xacro/arm.xacro"/>
 	<xacro:M6_CCS name="left" style="agibot_g2"/>
 	<xacro:M6_CCS name="right" direction="-1" style="agibot_g2"/>
 
-	<xacro:include filename="$(find agibot_g2_description)/xacro/eefs.xacro"/>
-	<xacro:EndEffectors gripper_type="${selected_gripper_type}"/>
+	<xacro:include filename="$(find m6_ccs_description)/xacro/eef_type_resolver.xacro"/>
+	<xacro:set_side_eef_types side="left" type_key="${effective_left_type}"/>
+	<xacro:set_side_eef_types side="right" type_key="${effective_right_type}"/>
+	<xacro:include filename="$(find m6_ccs_description)/xacro/eefs.xacro"/>
+	<xacro:EndEffectors
+		eef_fixed_joints="$(arg eef_fixed_joints)"
+		left_hand_type="${left_hand_type}"
+		left_gripper_type="${left_gripper_type}"
+		left_gripper_pad="${left_gripper_pad}"
+		right_hand_type="${right_hand_type}"
+		right_gripper_type="${right_gripper_type}"
+		right_gripper_pad="${right_gripper_pad}"/>
 
 </robot>

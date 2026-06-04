@@ -1,0 +1,161 @@
+# Shared ros2_control config: full-body (ocs2_wbc) + split-body (ocs2_arm + body/head/grippers).
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ocs2_arm_controller:
+      type: ocs2_arm_controller/Ocs2ArmController
+
+    ocs2_wbc_controller:
+      type: ocs2_arm_controller/Ocs2ArmController
+
+    body_joint_controller:
+      type: basic_joint_controller/BasicJointController
+
+    head_joint_controller:
+      type: basic_joint_controller/BasicJointController
+
+    left_hand_controller:
+      type: adaptive_gripper_controller/AdaptiveGripperController
+
+    right_hand_controller:
+      type: adaptive_gripper_controller/AdaptiveGripperController
+
+ocs2_arm_controller:
+  ros__parameters:
+    update_rate: 100
+    mpc_frequency: 50
+    info_file_name: task
+    joints:
+      - left_joint1
+      - left_joint2
+      - left_joint3
+      - left_joint4
+      - left_joint5
+      - left_joint6
+      - left_joint7
+      - right_joint1
+      - right_joint2
+      - right_joint3
+      - right_joint4
+      - right_joint5
+      - right_joint6
+      - right_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    robot_name: m6_ccs
+    home_duration: 5.0
+    movel_trajectory_duration: 6.0
+    movej_interpolation_type: doubles
+    home_interpolation_type: doubles
+    cartesian_defaults:
+      frame_id: arm_base
+      ik_type: AUTO
+      max_linear_velocity: 0.3
+      max_linear_acceleration: 1.0
+      max_linear_jerk: 5.0
+      max_angular_velocity: 0.5
+      max_angular_acceleration: 1.0
+      max_angular_jerk: 5.0
+    home_1: [1.457133809892805, -1.0633699963902674, -1.1994065285584414, -0.8074199090303408, -0.6949558811978124, -0.6864381599253574, -0.1295225067208675,
+             -1.457133809892805, -1.0633699963902674, 1.1994065285584414, -0.8074199090303408, 0.6949558811978124, -0.6864381599253574, 0.1295225067208675]
+    home_2: [2.502, -1.528, -1.562, -1.680, 0.0, -0.787, 0.0,
+             -2.502, -1.528, 1.562, -1.680, 0.0, -0.787, 0.0]
+
+ocs2_wbc_controller:
+  ros__parameters:
+    update_rate: 100
+    info_file_name: fixed_base
+    joints:
+      - body_joint1
+      - body_joint2
+      - body_joint3
+      - body_joint4
+      - body_joint5
+      - left_joint1
+      - left_joint2
+      - left_joint3
+      - left_joint4
+      - left_joint5
+      - left_joint6
+      - left_joint7
+      - right_joint1
+      - right_joint2
+      - right_joint3
+      - right_joint4
+      - right_joint5
+      - right_joint6
+      - right_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    robot_name: agibot_g2
+    home_duration: 5.0
+    home_1: [-0.638, 1.061, -0.409, 0.0, 0.0,
+             1.457133809892805, -1.0633699963902674, -1.1994065285584414, -0.8074199090303408, -0.6949558811978124, -0.6864381599253574, -0.1295225067208675,
+             -1.457133809892805, -1.0633699963902674, 1.1994065285584414, -0.8074199090303408, 0.6949558811978124, -0.6864381599253574, 0.1295225067208675]
+    home_2: [-0.638, 1.061, -0.409, 0.0, 0.0,
+             2.502, -1.528, -1.562, -1.680, 0.0, -0.787, 0.0,
+             -2.502, -1.528, 1.562, -1.680, 0.0, -0.787, 0.0]
+    home_3: [-1.082, 2.653, -1.656, 0.0, 0.0,
+             2.002, -1.528, -1.562, -2.280, 0.0, -0.787, 0.0,
+             -2.002, -1.528, 1.562, -2.280, 0.0, -0.787, 0.0]
+
+body_joint_controller:
+  ros__parameters:
+    update_rate: 100
+    joints:
+      - body_joint1
+      - body_joint2
+      - body_joint3
+      - body_joint4
+      - body_joint5
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    home_duration: 5.0
+    movej_duration: 5.0
+    hold_position_threshold: 0.1
+    movej_interpolation_type: doubles
+    home_1: [-0.638, 1.061, -0.409, 0.0, 0.0]
+    home_2: [-0.638, 1.061, -0.409, 0.0, 0.0]
+
+head_joint_controller:
+  ros__parameters:
+    update_rate: 100
+    joints:
+      - head_joint1
+      - head_joint2
+      - head_joint3
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    home_duration: 5.0
+    movej_duration: 5.0
+    hold_position_threshold: 0.1
+    home_1: [0.0, 0.0, 0.0]
+    home_2: [0.0, -0.1, 0.0]
+    home_3: [0.0, 0.1, 0.0]
+
+left_hand_controller:
+  ros__parameters:
+    joint: left_gripper_joint
+    force_feedback_ratio: 0.1
+    force_threshold: 1.5
+
+right_hand_controller:
+  ros__parameters:
+    joint: right_gripper_joint
+    force_feedback_ratio: 0.1
+    force_threshold: 1.5

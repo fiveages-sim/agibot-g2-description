@@ -1,100 +1,16 @@
-# This config file is used by ros2_control
-controller_manager:
+# Type-agnostic overlays (merged on top of common.yaml).
+
+ocs2_arm_controller:
   ros__parameters:
-    update_rate: 100  # Hz
-
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
-
-    ocs2_wbc_controller:
-      type: ocs2_arm_controller/Ocs2ArmController
-
-    left_hand_controller:
-      type: adaptive_gripper_controller/AdaptiveGripperController
-
-    right_hand_controller:
-      type: adaptive_gripper_controller/AdaptiveGripperController
-
-    head_joint_controller:
-      type: basic_joint_controller/BasicJointController
+    home_3: [2.002, -1.528, -1.562, -2.280, 0.0, -0.787, 0.0,
+             -2.002, -1.528, 1.562, -2.280, 0.0, -0.787, 0.0]
 
 ocs2_wbc_controller:
   ros__parameters:
-    # Joint configuration
-    update_rate: 100  # Hz
-    info_file_name: fixed_base
-    joints:
-      - body_joint1
-      - body_joint2
-      - body_joint3
-      - body_joint4
-      - body_joint5
-      - left_joint1
-      - left_joint2
-      - left_joint3
-      - left_joint4
-      - left_joint5
-      - left_joint6
-      - left_joint7
-      - right_joint1
-      - right_joint2
-      - right_joint3
-      - right_joint4
-      - right_joint5
-      - right_joint6
-      - right_joint7
+    home_3: [-1.082, 2.653, -1.656, 0.0, 0.0,
+             2.002, -1.528, -1.562, -2.280, 0.0, -0.787, 0.0,
+             -2.002, -1.528, 1.562, -2.280, 0.0, -0.787, 0.0]
 
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-
-    robot_name: agibot_g2
-
-    # Control parameters
-    home_1: [ -0.638, 1.061, -0.409, 0.0, 0.0,
-              1.457133809892805, -1.0633699963902674, -1.1994065285584414, -0.8074199090303408, -0.6949558811978124, -0.6864381599253574, -0.1295225067208675,
-              -1.457133809892805, -1.0633699963902674, 1.1994065285584414, -0.8074199090303408, 0.6949558811978124, -0.6864381599253574, 0.1295225067208675 ]
-    home_2: [ -0.638, 1.061, -0.409, 0.0, 0.0,
-              2.502, -1.528, -1.562, -1.680, 0.0, -0.787, 0.0,
-              -2.502, -1.528, 1.562, -1.680, 0.0, -0.787, 0.0 ]
-    home_3: [ -1.082, 2.653, -1.656, 0.0, 0.0,
-              2.002, -1.528, -1.562, -2.280, 0.0, -0.787, 0.0,
-              -2.002, -1.528, 1.562, -2.280, 0.0, -0.787, 0.0 ]
-
-left_hand_controller:
+body_joint_controller:
   ros__parameters:
-    joint: left_gripper_joint
-    force_feedback_ratio: 0.1
-    force_threshold: 1.5
-
-right_hand_controller:
-  ros__parameters:
-    joint: right_gripper_joint
-    force_feedback_ratio: 0.1
-    force_threshold: 1.5
-
-
-head_joint_controller:
-  ros__parameters:
-    update_rate: 100  # Hz
-
-    # 头部关节
-    joints:
-      - head_joint1
-      - head_joint2
-      - head_joint3
-
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
-
-    home_1: [ 0.0, 0.0 ,0.0 ]
-    home_2: [ 0.0, -0.1, 0.0 ]
-    home_3: [ 0.0, 0.1, 0.0 ]
-
-    home_duration: 5.0
-    move_duration: 5.0
-    hold_position_threshold: 0.1
+    home_3: [-1.082, 2.653, -1.656, 0.0, 0.0]
